@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* === 3-COLUMN LAYOUT === */
+.cg-layout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cg-paperdoll {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(61,43,31,.03);
+  border-radius: 12px;
+  padding: 8px 4px;
+  border: 1px solid #ddd0bc;
+}
+
+.cg-injuries {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cg-guide {
+  flex: 1 1 350px;
+  min-width: 280px;
+  overflow-y: auto;
+  position: sticky;
+  top: 10px;
+}
+
+.cg-body-svg {
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+  user-select: none;
+}
+
+/* MOBILE: <768px */
+@media (max-width: 767px) {
+  .cg-layout {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cg-paperdoll {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .cg-body-svg {
+    max-width: 240px;
+  }
+  .cg-injuries {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .cg-guide {
+    flex: 1 1 100%;
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+/* TABLET: 768-1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cg-body-svg {
+    max-width: 220px;
+  }
+  .cg-injuries {
+    flex: 1 1 200px;
+  }
+  .cg-guide {
+    flex: 1 1 100%;
+    max-height: none;
+    position: static;
+    overflow-y: visible;
+  }
+}
+
+/* DESKTOP: 1024-1439px */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .cg-body-svg {
+    max-width: 280px;
+  }
+  .cg-injuries {
+    flex: 0 0 270px;
+  }
+  .cg-guide {
+    max-height: 88vh;
+  }
+}
+
+/* LARGE: 1440-1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .cg-body-svg {
+    max-width: 340px;
+  }
+  .cg-injuries {
+    flex: 0 0 310px;
+  }
+  .cg-guide {
+    max-height: 90vh;
+  }
+}
+
+/* ULTRAWIDE: 1920px+ */
+@media (min-width: 1920px) {
+  .cg-body-svg {
+    max-width: 400px;
+  }
+  .cg-injuries {
+    flex: 0 0 360px;
+  }
+  .cg-guide {
+    max-height: 92vh;
+  }
+}
+
+/* Custom scrollbar */
+.cg-guide::-webkit-scrollbar {
+  width: 6px;
+}
+.cg-guide::-webkit-scrollbar-track {
+  background: rgba(61,43,31,.05);
+  border-radius: 3px;
+}
+.cg-guide::-webkit-scrollbar-thumb {
+  background: #c4a882;
+  border-radius: 3px;
+}
+.cg-guide::-webkit-scrollbar-thumb:hover {
+  background: #8b7355;
+}
